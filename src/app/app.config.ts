@@ -1,4 +1,5 @@
-import { ApplicationConfig, isDevMode, provideZoneChangeDetection } from '@angular/core';
+import { ServiceappService } from './services/serviceapp.service';
+import { APP_INITIALIZER, ApplicationConfig, isDevMode, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -11,9 +12,14 @@ import {
 } from '@angular/common/http';
 
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { provideStore } from '@ngrx/store';
+import { provideStore, Store } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { rootReducer } from './store/app.reducers';
+import { AppEffects } from './store/app.effects';
+import { fetchInitialData } from './store/app.actions';
+import { authReducer } from './features/auth/state/auth.reducers';
+import { AuthEffects } from './features/auth/state/auth.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -23,13 +29,34 @@ export const appConfig: ApplicationConfig = {
     HttpClientModule,
     provideHttpClient(withFetch()),
     provideStore({
-      // catalogueState: productReducers, // appel du fonction de reducers continet tous les actions qui on utiliser sur store pour recupere donnes
+      appState: rootReducer, // Add your store's reducer here
+      auth: authReducer,
+
     }),
-    provideEffects(),  // provideEffects([ProdcutsEffects]), // en mettre la calass Injectable d'effect
+    provideEffects([AppEffects, AuthEffects]), // Register your NgRx effects
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
       connectInZone: true,
     }), provideAnimationsAsync(),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (apiCheckService: ServiceappService, store: Store) => () =>
+        apiCheckService.checkAllEndpoints().subscribe((results) => {
+          if (results) {  // Check if results is defined
+            console.log('Vérification des points de terminaison:', results);  // Log the results
+            results.forEach(({ endpoint, isEmpty }) => {
+              if (isEmpty) {
+                console.log(`Endpoint ${endpoint} est vide. Action de récupération déclenchée.`);
+                store.dispatch(fetchInitialData({ endpoint }));
+              }
+            });
+          } else {
+            console.error('Aucun résultat reçu.');
+          }
+        }),
+      deps: [ServiceappService, Store],
+      multi: true,
+    },
   ]
 };
