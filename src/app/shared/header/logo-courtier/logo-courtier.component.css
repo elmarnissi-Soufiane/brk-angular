@@ -1,0 +1,20 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.shield {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.angular-text {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}

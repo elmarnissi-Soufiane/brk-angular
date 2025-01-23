@@ -1,0 +1,12 @@
+.menu-login-container {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-right: 10px;
+}
+
+.menu-select {
+    padding: 5px;
+}
