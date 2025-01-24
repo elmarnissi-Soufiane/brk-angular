@@ -1,1 +1,44 @@
-<p>login works!</p>
+<mat-card class="login-card">
+    <h1>Welcome Back</h1>
+    <p>Please enter your credentials to continue.</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" />
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="loginForm.get('email')?.invalid">
+                Please enter a valid email address.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" />
+            <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.get('password')?.invalid">
+                Password must be at least 6 characters long.
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Loading Spinner -->
+        <mat-spinner *ngIf="loading$ | async" diameter="30"></mat-spinner>
+
+        <!-- Error Message -->
+        <mat-error *ngIf="error$ | async as error" class="error-message">
+            {{ error }}
+        </mat-error>
+
+        <button mat-raised-button color="primary" class="full-width submit-btn" type="submit"
+            [disabled]="loginForm.invalid || (loading$ | async)">
+            Login
+        </button>
+    </form>
+
+    <p>
+        Don't have an account?
+        <a routerLink="/register">Sign up</a>
+    </p>
+</mat-card>

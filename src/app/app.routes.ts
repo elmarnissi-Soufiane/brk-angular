@@ -7,11 +7,17 @@ import { StockComponent } from './features/stocks/componenets/stock/stock.compon
 import { EntrepotComponent } from './features/entrepots/componenets/entrepot/entrepot.component';
 import { FournisseurComponent } from './features/fournisseurs/componenets/fournisseur/fournisseur.component';
 import { ProductComponent } from './features/products/componenets/product/product.component';
+import { RegisterComponent } from './features/auth/componenets/register/register.component';
 
 export const routes: Routes = [
+
     // login
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
+
+    // Register
+    { path: 'register', component: RegisterComponent },
+    { path: '', redirectTo: '/register', pathMatch: 'full' },
 
     // Dashboard
     { path: 'dashboard', component: DashboardComponent },
@@ -40,4 +46,5 @@ export const routes: Routes = [
     // Products
     { path: 'product', component: ProductComponent },
     { path: '', redirectTo: '/product', pathMatch: 'full' },
+
 ];
