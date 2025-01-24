@@ -1,0 +1,6 @@
+canvas {
+    max-width: 100% !important;
+    /* Empêche le graphique d'aller au-delà de la largeur de la div */
+    max-height: 250px !important;
+    /* Limite la hauteur des graphiques */
+}
