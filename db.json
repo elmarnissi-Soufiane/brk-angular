@@ -1,70 +1,77 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstName": "John",
-            "lastName": "Doe",
-            "email": "john.doe@example.com",
-            "password": "hashed_password_123"
-        },
-        {
-            "id": 2,
-            "firstName": "Jane",
-            "lastName": "Smith",
-            "email": "jane.smith@example.com",
-            "password": "hashed_password_456"
-        }
-    ],
-    "products": [
-        {
-            "id": 1,
-            "name": "Product A",
-            "price": 19.99,
-            "categoryId": 2
-        },
-        {
-            "id": 2,
-            "name": "Product B",
-            "price": 29.99,
-            "categoryId": 1
-        }
-    ],
-    "categories": [
-        {
-            "id": 1,
-            "name": "Category 1",
-            "parentId": null
-        },
-        {
-            "id": 2,
-            "name": "Category 2",
-            "parentId": 1
-        }
-    ],
-    "fournisseurs": [
-        {
-            "id": 1,
-            "name": "Supplier A"
-        },
-        {
-            "id": 2,
-            "name": "Supplier B"
-        }
-    ],
-    "Commandes": [
-        {
-            "id": 1,
-            "date": "2023-04-15T12:34:56Z",
-            "userId": 1,
-            "supplierId": 1,
-            "type": "Purchase"
-        },
-        {
-            "id": 2,
-            "date": "2023-05-01T09:00:00Z",
-            "userId": 2,
-            "supplierId": 2,
-            "type": "Return"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "password": "hashed_password_123"
+    },
+    {
+      "id": "2",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com",
+      "password": "hashed_password_456"
+    },
+    {
+      "id": "b55d",
+      "firstName": "soufiane",
+      "lastName": "elmarnissi",
+      "email": "soufiane@gmail.com",
+      "password": "@Ss123456@"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Product A",
+      "price": 19.99,
+      "categoryId": 2
+    },
+    {
+      "id": "2",
+      "name": "Product B",
+      "price": 29.99,
+      "categoryId": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Category 1",
+      "parentId": null
+    },
+    {
+      "id": "2",
+      "name": "Category 2",
+      "parentId": 1
+    }
+  ],
+  "fournisseurs": [
+    {
+      "id": "1",
+      "name": "Supplier A"
+    },
+    {
+      "id": "2",
+      "name": "Supplier B"
+    }
+  ],
+  "Commandes": [
+    {
+      "id": "1",
+      "date": "2023-04-15T12:34:56Z",
+      "userId": 1,
+      "supplierId": 1,
+      "type": "Purchase"
+    },
+    {
+      "id": "2",
+      "date": "2023-05-01T09:00:00Z",
+      "userId": 2,
+      "supplierId": 2,
+      "type": "Return"
+    }
+  ]
 }

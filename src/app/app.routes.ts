@@ -17,34 +17,34 @@ export const routes: Routes = [
 
     // Register
     { path: 'register', component: RegisterComponent },
-    { path: '', redirectTo: '/register', pathMatch: 'full' },
+    // { path: '', redirectTo: '/register', pathMatch: 'full' },
 
     // Dashboard
     { path: 'dashboard', component: DashboardComponent },
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
     // Categories
     { path: 'categorie', component: CategorieComponent },
-    { path: '', redirectTo: '/categorie', pathMatch: 'full' },
+    // { path: '', redirectTo: '/categorie', pathMatch: 'full' },
 
     // Commandes
     { path: 'commande', component: CommandeComponent },
-    { path: '', redirectTo: '/commande', pathMatch: 'full' },
+    // { path: '', redirectTo: '/commande', pathMatch: 'full' },
 
     // Stock
     { path: 'stock', component: StockComponent },
-    { path: '', redirectTo: '/stock', pathMatch: 'full' },
+    // { path: '', redirectTo: '/stock', pathMatch: 'full' },
 
     // Entrepots
     { path: 'entrepot', component: EntrepotComponent },
-    { path: '', redirectTo: '/entrepot', pathMatch: 'full' },
+    // { path: '', redirectTo: '/entrepot', pathMatch: 'full' },
 
     // Fournisseurs
     { path: 'fournisseur', component: FournisseurComponent },
-    { path: '', redirectTo: '/fournisseur', pathMatch: 'full' },
+    // { path: '', redirectTo: '/fournisseur', pathMatch: 'full' },
 
     // Products
     { path: 'product', component: ProductComponent },
-    { path: '', redirectTo: '/product', pathMatch: 'full' },
+    // { path: '', redirectTo: '/product', pathMatch: 'full' },
 
 ];

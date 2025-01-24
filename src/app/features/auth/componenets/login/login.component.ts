@@ -14,6 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Import this module for mat-spinner
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -40,10 +42,9 @@ export class LoginComponent implements OnInit {
   loading$: Observable<boolean>;
   error$: Observable<string | null>;
 
-  constructor(private store: Store, private fb: FormBuilder) {
-    // Select from the store
-    this.loading$ = this.store.select(selectLoading);
-    this.error$ = this.store.select(selectError);
+  constructor(private store: Store, private fb: FormBuilder, private router: Router) {
+    this.loading$ = this.store.select(selectLoading); // Loading state
+    this.error$ = this.store.select(selectError); // Error state
   }
 
   ngOnInit(): void {
@@ -54,28 +55,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // Dispatch login action on form submission
-  // onSubmit(): void {
-  //   if (this.loginForm.valid) {
-  //     const { email, password } = this.loginForm.value;
-  //     this.store.dispatch(login({ email, password }));
-  //   }
-  // }
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-      // You can dispatch the login action here if needed
+      // Dispatch login action to the store
       this.store.dispatch(login({ email, password }));
-
-      // Show a success alert when the form is valid
-      alert('Login successful!');
-    } else {
-      // Optionally, show an alert if the form is invalid
-      alert('Please fill out the form correctly!');
     }
   }
 
-
+  goToRegister() {
+    this.router.navigateByUrl('/register');
+  }
 
   // user$: Observable<any>; // Observable pour le user
   // loading$: Observable<boolean>; // Observable pour le chargement

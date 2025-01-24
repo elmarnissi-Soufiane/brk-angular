@@ -1,7 +1,13 @@
 <div class="menu-login-container">
-    <span class="username">Utilisateur</span>
-    <select class="menu-select">
-        <option>Profil</option>
-        <option>Déconnexion</option>
+    <!-- Affiche le prénom de l'utilisateur actuel avec async pipe -->
+    <span class="username">{{ (currentUser$ | async)?.firstName || 'Utilisateur' }} {{ (currentUser$ | async)?.lastName
+        ||
+        '' }}</span>
+
+    <!-- Menu déroulant pour Profil/Déconnexion -->
+    <select class="menu-select" (change)="onMenuSelect($event)">
+        <option disabled selected>Menu</option>
+        <option value="profile">Profil</option>
+        <option value="logout">Déconnexion</option>
     </select>
 </div>

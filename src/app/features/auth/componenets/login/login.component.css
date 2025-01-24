@@ -1,19 +1,92 @@
+/* Adjusting card appearance */
 .login-card {
+    width: 100%;
     max-width: 400px;
-    margin: 0 auto;
+    margin: auto;
     padding: 20px;
     text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: #fff;
+    transition: all 0.3s ease;
 }
 
+.login-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Full-width input fields */
 .full-width {
     width: 100%;
 }
 
-.submit-btn {
+/* Styling for the register link */
+.register-link {
     margin-top: 20px;
 }
 
-.error-message {
+.register-link a {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styles */
+.error-message p {
     color: red;
     font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Loading spinner container */
+.loading-container {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Adding spacing and alignment for icon button */
+mat-icon {
+    font-size: 22px;
+    color: #1976d2;
+}
+
+mat-form-field {
+    margin-bottom: 15px;
+    /* Add margin between fields */
+}
+
+/* Styling the password input */
+mat-form-field .mat-form-field-infix {
+    padding-right: 50px;
+    /* Leave space for the icon button */
+}
+
+mat-icon-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+mat-icon-button mat-icon {
+    font-size: 22px;
+    color: #1976d2;
+}
+
+/* Submit Button styling */
+button[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Error message adjustments */
+.mat-error {
+    font-size: 12px;
+    color: red;
 }

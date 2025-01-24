@@ -1,44 +1,47 @@
 <mat-card class="login-card">
-    <h1>Welcome Back</h1>
-    <p>Please enter your credentials to continue.</p>
+    <h2>Login</h2>
 
+    <!-- Form -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field class="full-width" appearance="outline">
+        <!-- Email -->
+        <mat-form-field appearance="fill" class="full-width">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email" type="email" />
-            <mat-icon matSuffix>email</mat-icon>
-            <mat-error *ngIf="loginForm.get('email')?.invalid">
-                Please enter a valid email address.
-            </mat-error>
+            <input matInput type="email" formControlName="email" />
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid email address</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="outline">
+        <!-- Password -->
+        <mat-form-field appearance="fill" class="full-width">
             <mat-label>Password</mat-label>
-            <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" />
-            <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
-                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+                [attr.aria-label]="'Hide or show password'" [attr.aria-pressed]="hidePassword">
+                <i class="fa" [ngClass]="hidePassword ? 'fa-eye-slash' : 'fa-eye'"></i>
             </button>
-            <mat-error *ngIf="loginForm.get('password')?.invalid">
-                Password must be at least 6 characters long.
-            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6
+                characters</mat-error>
         </mat-form-field>
 
-        <!-- Loading Spinner -->
-        <mat-spinner *ngIf="loading$ | async" diameter="30"></mat-spinner>
-
-        <!-- Error Message -->
-        <mat-error *ngIf="error$ | async as error" class="error-message">
-            {{ error }}
-        </mat-error>
-
-        <button mat-raised-button color="primary" class="full-width submit-btn" type="submit"
-            [disabled]="loginForm.invalid || (loading$ | async)">
+        <!-- Submit Button -->
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || (loading$ | async)">
             Login
         </button>
     </form>
 
-    <p>
-        Don't have an account?
-        <a routerLink="/register">Sign up</a>
-    </p>
+    <!-- Loading Spinner -->
+    <div *ngIf="loading$ | async" class="loading-container">
+        <mat-spinner diameter="40"></mat-spinner>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="error$ | async as error" class="error-message">
+        <p>{{ error }}</p>
+    </div>
+
+    <!-- Register Link -->
+    <div class="register-link">
+        <p>Don't have an account? <a (click)="goToRegister()">Register here</a></p>
+    </div>
 </mat-card>

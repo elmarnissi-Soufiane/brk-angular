@@ -1,12 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-
-export interface AppState {
-    users: any[];
-    products: any[];
-    categories: any[];
-    fournisseurs: any[];
-    commandes: any[];
-}
+import { AppState } from './app.state';
 
 // Get the entire app state
 export const selectAppState = createFeatureSelector<AppState>('appState');
