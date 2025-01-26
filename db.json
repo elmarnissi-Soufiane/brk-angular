@@ -15,11 +15,18 @@
       "password": "hashed_password_456"
     },
     {
-      "id": "b55d",
-      "firstName": "soufiane",
-      "lastName": "elmarnissi",
-      "email": "soufiane@gmail.com",
-      "password": "@Ss123456@"
+      "id": "3",
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "email": "alice.johnson@example.com",
+      "password": "hashed_password_789"
+    },
+    {
+      "id": "4",
+      "firstName": "Mark",
+      "lastName": "Brown",
+      "email": "mark.brown@example.com",
+      "password": "hashed_password_101"
     }
   ],
   "products": [
@@ -34,6 +41,18 @@
       "name": "Product B",
       "price": 29.99,
       "categoryId": 1
+    },
+    {
+      "id": "3",
+      "name": "Product C",
+      "price": 15.49,
+      "categoryId": 1
+    },
+    {
+      "id": "4",
+      "name": "Product D",
+      "price": 99.99,
+      "categoryId": 2
     }
   ],
   "categories": [
@@ -56,9 +75,13 @@
     {
       "id": "2",
       "name": "Supplier B"
+    },
+    {
+      "id": "3",
+      "name": "Supplier C"
     }
   ],
-  "Commandes": [
+  "commandes": [
     {
       "id": "1",
       "date": "2023-04-15T12:34:56Z",
@@ -72,6 +95,62 @@
       "userId": 2,
       "supplierId": 2,
       "type": "Return"
+    },
+    {
+      "id": "3",
+      "date": "2023-06-12T15:45:30Z",
+      "userId": 3,
+      "supplierId": 3,
+      "type": "Purchase"
+    },
+    {
+      "id": "4",
+      "date": "2023-07-20T08:15:45Z",
+      "userId": 4,
+      "supplierId": 1,
+      "type": "Exchange"
+    },
+    {
+      "id": "5",
+      "date": "2023-08-05T14:20:10Z",
+      "userId": 1,
+      "supplierId": 2,
+      "type": "Purchase"
+    },
+    {
+      "id": "6",
+      "date": "2023-09-10T10:30:00Z",
+      "userId": 2,
+      "supplierId": 3,
+      "type": "Return"
+    },
+    {
+      "id": "7",
+      "date": "2023-10-01T11:00:00Z",
+      "userId": 3,
+      "supplierId": 1,
+      "type": "Purchase"
+    },
+    {
+      "id": "8",
+      "date": "2023-11-15T09:45:00Z",
+      "userId": 4,
+      "supplierId": 2,
+      "type": "Purchase"
+    },
+    {
+      "id": "9",
+      "date": "2023-12-05T08:00:00Z",
+      "userId": 1,
+      "supplierId": 3,
+      "type": "Exchange"
+    },
+    {
+      "id": "10",
+      "date": "2023-12-15T14:10:00Z",
+      "userId": 2,
+      "supplierId": 1,
+      "type": "Purchase"
     }
   ]
 }

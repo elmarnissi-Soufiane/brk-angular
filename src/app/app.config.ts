@@ -20,6 +20,8 @@ import { AppEffects } from './store/app.effects';
 import { fetchInitialData } from './store/app.actions';
 import { authReducer } from './features/auth/state/auth.reducers';
 import { AuthEffects } from './features/auth/state/auth.effects';
+import { ChartsEffects } from './features/dashboard/state/courtier.effects';
+import { chartsReducer } from './features/dashboard/state/courtier.reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -31,9 +33,10 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       appState: rootReducer, // Add your store's reducer here
       auth: authReducer,
+      charts: chartsReducer
 
     }),
-    provideEffects([AppEffects, AuthEffects]), // Register your NgRx effects
+    provideEffects([AppEffects, AuthEffects, ChartsEffects]), // Register your NgRx effects
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),

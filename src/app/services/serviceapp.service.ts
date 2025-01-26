@@ -9,7 +9,7 @@ import { environment } from '../environements/environments';
 export class ServiceappService {
 
   // like there check all endpoints i have
-  private endpoints = ['/users', '/products', '/categories', '/fournisseurs', '/Commandes'];
+  private endpoints = ['/users', '/products', '/categories', '/fournisseurs', '/commandes'];
 
   constructor(private http: HttpClient) { }
 
