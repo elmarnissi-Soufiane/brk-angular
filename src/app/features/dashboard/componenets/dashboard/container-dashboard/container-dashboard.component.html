@@ -1,29 +1,32 @@
-<div class="container-fluid">
-    <div class="row justify-content-center"> <!-- Centrer la ligne -->
-        <!-- Main Content -->
-        <div class="col-md-10">
-            <div class="row mt-4 justify-content-center"> <!-- Centrer la ligne -->
-                <!-- Line Chart -->
-                <div class="col-md-6 mb-4 d-flex justify-content-center">
-                    <app-data-for-chart-line></app-data-for-chart-line>
-                </div>
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar" [class.hidden]="!isMenuVisible">
+        <button class="toggle-btn" (click)="toggleMenu()">☰</button>
+        <ul>
+            <li><a (click)="goToProducts()">📦 Produits</a></li>
+            <li><a (click)="goToCategories()">📁 Catégories</a></li>
+            <li><a (click)="goToFournisseurs()">🏢 Fournisseurs</a></li>
+            <li><a (click)="goToCommandes()">🛒 Commandes</a></li>
+        </ul>
+    </div>
 
-                <!-- Pie Chart -->
-                <div class="col-md-6 mb-4 d-flex justify-content-center">
-                    <app-data-for-chart-pie></app-data-for-chart-pie>
-                </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <button class="menu-toggle-btn" (click)="toggleMenu()">☰</button>
+        <div class="row">
+            <div class="col-md-6">
+                <app-data-for-chart-line></app-data-for-chart-line>
             </div>
-
-            <div class="row mt-4 justify-content-center"> <!-- Centrer la ligne -->
-                <!-- Bar Chart -->
-                <div class="col-md-6 mb-4 d-flex justify-content-center">
-                    <app-options-for-line></app-options-for-line>
-                </div>
-
-                <!-- Doughnut Chart -->
-                <div class="col-md-6 mb-4 d-flex justify-content-center">
-                    <app-options-for-pie></app-options-for-pie>
-                </div>
+            <div class="col-md-6">
+                <app-data-for-chart-pie></app-data-for-chart-pie>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <app-options-for-line></app-options-for-line>
+            </div>
+            <div class="col-md-6">
+                <app-options-for-pie></app-options-for-pie>
             </div>
         </div>
     </div>

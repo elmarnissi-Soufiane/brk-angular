@@ -22,6 +22,8 @@ import { authReducer } from './features/auth/state/auth.reducers';
 import { AuthEffects } from './features/auth/state/auth.effects';
 import { ChartsEffects } from './features/dashboard/state/courtier.effects';
 import { chartsReducer } from './features/dashboard/state/courtier.reducers';
+import { fournisseurReducer } from './features/fournisseurs/state/fournisseur.reducers';
+import { FournisseurEffects } from './features/fournisseurs/state/fournisseur.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -33,10 +35,11 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       appState: rootReducer, // Add your store's reducer here
       auth: authReducer,
-      charts: chartsReducer
+      charts: chartsReducer,
+      fournisseurs: fournisseurReducer
 
     }),
-    provideEffects([AppEffects, AuthEffects, ChartsEffects]), // Register your NgRx effects
+    provideEffects([AppEffects, AuthEffects, ChartsEffects, FournisseurEffects]), // Register your NgRx effects
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),

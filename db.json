@@ -27,6 +27,13 @@
       "lastName": "Brown",
       "email": "mark.brown@example.com",
       "password": "hashed_password_101"
+    },
+    {
+      "id": "b827",
+      "firstName": "soufiane",
+      "lastName": "elmarnissi",
+      "email": "soufiane.elmarnissi@gmail.com",
+      "password": "@Ss123456@"
     }
   ],
   "products": [
