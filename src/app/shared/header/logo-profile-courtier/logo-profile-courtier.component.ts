@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from '../../../models/Auth/user';
 import { selectCurrentUser } from '../../../features/auth/state/auth.selectors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logo-profile-courtier',
@@ -15,7 +16,7 @@ import { selectCurrentUser } from '../../../features/auth/state/auth.selectors';
 export class LogoProfileCourtierComponent {
   currentUser$: Observable<User | null>; // Observable pour suivre l'utilisateur
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private router: Router) {
     this.currentUser$ = this.store.select(selectCurrentUser); // Sélectionner l'utilisateur courant du store
   }
 
@@ -24,6 +25,8 @@ export class LogoProfileCourtierComponent {
     if (value === 'logout') {
       // Implémentez l'action de déconnexion ici
       console.log('Déconnexion');
+      this.router.navigateByUrl('/login');
+
     } else if (value === 'profile') {
       // Implémentez l'action pour afficher le profil ici
       console.log('Redirection vers le profil');

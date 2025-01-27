@@ -1,0 +1,88 @@
+/* Main container for content */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    /* Adjust for the sidebar width */
+    padding: 20px;
+}
+
+/* Title of the table */
+.table-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Table container with elevation effect */
+.table-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styling */
+.mat-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mat-header-cell {
+    font-weight: bold;
+    background-color: #f1f1f1;
+}
+
+.mat-cell {
+    padding: 12px;
+    text-align: left;
+}
+
+.mat-header-row {
+    background-color: #f1f1f1;
+}
+
+.mat-row:hover {
+    background-color: #f9f9f9;
+}
+
+button.mat-button {
+    margin: 0 5px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-transform: none;
+}
+
+button.mat-button:hover {
+    opacity: 0.8;
+}
+
+/* Button colors */
+button.mat-button[color="primary"] {
+    background-color: #007bff;
+    color: white;
+}
+
+button.mat-button[color="primary"]:hover {
+    background-color: #0056b3;
+}
+
+button.mat-button[color="warn"] {
+    background-color: #ff5722;
+    color: white;
+}
+
+button.mat-button[color="warn"]:hover {
+    background-color: #e64a19;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content-container {
+        margin-left: 0;
+    }
+
+    .mat-table {
+        font-size: 14px;
+    }
+}

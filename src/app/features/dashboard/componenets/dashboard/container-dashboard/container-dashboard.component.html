@@ -1,18 +1,8 @@
 <div class="dashboard-container">
-    <!-- Sidebar -->
-    <div class="sidebar" [class.hidden]="!isMenuVisible">
-        <button class="toggle-btn" (click)="toggleMenu()">☰</button>
-        <ul>
-            <li><a (click)="goToProducts()">📦 Produits</a></li>
-            <li><a (click)="goToCategories()">📁 Catégories</a></li>
-            <li><a (click)="goToFournisseurs()">🏢 Fournisseurs</a></li>
-            <li><a (click)="goToCommandes()">🛒 Commandes</a></li>
-        </ul>
-    </div>
+    <app-sidebar></app-sidebar>
 
     <!-- Main Content -->
     <div class="main-content">
-        <button class="menu-toggle-btn" (click)="toggleMenu()">☰</button>
         <div class="row">
             <div class="col-md-6">
                 <app-data-for-chart-line></app-data-for-chart-line>
