@@ -18,4 +18,25 @@ export class FournisseurService {
     return this.http.get<Fournisseur[]>(this.apiUrl);
   }
 
+  // Récupérer un fournisseur par son ID
+  getFournisseurById(id: number): Observable<Fournisseur> {
+    return this.http.get<Fournisseur>(`${this.apiUrl}/${id}`);
+  }
+
+  // Ajouter un fournisseur
+  addFournisseur(fournisseur: Fournisseur): Observable<Fournisseur> {
+    return this.http.post<Fournisseur>(this.apiUrl, fournisseur);
+  }
+
+  // Modifier un fournisseur
+  updateFournisseur(fournisseur: Fournisseur): Observable<Fournisseur> {
+    return this.http.put<Fournisseur>(`${this.apiUrl}/${fournisseur.id}`, fournisseur);
+  }
+
+  // Supprimer un fournisseur
+  deleteFournisseur(id: number): Observable<void> {
+    console.log(`Deleting fournisseur with id: ${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
 }
