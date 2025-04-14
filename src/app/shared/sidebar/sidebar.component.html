@@ -1,6 +1,7 @@
 <div class="sidebar" [class.hidden]="!isMenuVisible">
     <button class="toggle-btn" (click)="toggleMenu()">☰</button>
     <ul>
+        <li><a (click)="goToDashboard()">📊 Dashboard</a></li>
         <li><a (click)="goToProducts()">📦 Produits</a></li>
         <li><a (click)="goToCategories()">📁 Catégories</a></li>
         <li><a (click)="goToFournisseurs()">🏢 Fournisseurs</a></li>

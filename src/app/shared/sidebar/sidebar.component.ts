@@ -33,5 +33,8 @@ export class SidebarComponent {
     this.router.navigateByUrl('commande');
   }
 
+  goToDashboard() {
+    this.router.navigateByUrl('dashboard');
+  }
 
 }

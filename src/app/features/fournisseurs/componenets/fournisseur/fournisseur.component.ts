@@ -81,6 +81,9 @@ export class FournisseurComponent implements OnInit {
     }
   }
 
+private generateUniqueId(): number {
+    return Math.floor(Math.random() * 1000000); // Génère un ID unique aléatoire
+  }
 
   editFournisseur(fournisseur: Fournisseur): void {
     this.openModal(fournisseur);
@@ -88,10 +91,6 @@ export class FournisseurComponent implements OnInit {
 
   addFournisseur(): void {
     this.openModal();
-  }
-
-  private generateUniqueId(): number {
-    return Math.floor(Math.random() * 1000000); // Génère un ID unique aléatoire
   }
 
   // outside click handler

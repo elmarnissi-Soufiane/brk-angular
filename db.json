@@ -76,16 +76,8 @@
   ],
   "fournisseurs": [
     {
-      "id": "2",
-      "name": "Supplier B"
-    },
-    {
-      "id": "3",
-      "name": "Supplier CCCCC"
-    },
-    {
-      "id": "4",
-      "name": "soufiane"
+      "id": "1",
+      "name": "kayennnn"
     }
   ],
   "commandes": [
